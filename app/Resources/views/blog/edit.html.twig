@@ -1,0 +1,82 @@
+{% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+{% extends '::backendBase.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/bootstrap3-wysihtml5.min.css'
+    filter='cssrewrite' filter='?uglifycss'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body -%}
+    <section class="content-header">
+        <h1>
+            Editar entrada de blog
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+                        {{ form_start(edit_form,{'attr':{'class':'edit-form','novalidate': 'novalidate'}}) }}
+                        {{ form_row(edit_form.imageFile) }}
+                        {{ form_row(edit_form.translations) }}
+
+                        <div class="col-md-12 post-media gallery">
+                            <label class="control-label">Imágenes de galería</label>
+                            <ul class="row-customers list-unstyled" data-index="2" data-prototype="<div class='col-sm-12'><div class='caption'>{{ form_row(edit_form.images.vars.prototype.imageFile)|e }}{{ form_row(edit_form.images.vars.prototype.sm)|e }}<button type='button' class='btn btn-danger delete-row-item'>Eliminar</button></div></div>">
+                                {% for item in edit_form.images %}
+                                    <li class="no-delete-button">
+                                        <div class="col-sm-12">
+                                            <div class="caption">
+                                                {{ form_row(item.imageFile)   }}
+                                                {{ form_row(item.sm)   }}
+                                                <button type='button' class='btn btn-danger delete-row-item'>Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {{ form_end(edit_form) }}
+
+                        <div class="btn-toolbar special-top row" role="toolbar">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-primary edit-submit">Guardar</button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="...">
+                                {{ form_start(delete_form) }}
+                                <button type="button" class="btn btn-danger delete-submit">Eliminar</button>
+                                {% include ":default:confirmTemplate.html.twig" %}
+                                {{ form_end(delete_form) }}
+                            </div>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a href="{{ path('backend_blog_index') }}" class="btn btn-default">Volver a la lista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+    {% include ":default:confirmRowItemTemplate.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+    '@BackendBundle/Resources/public/js/lib/add-new.coffee'
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/bootstrap3-wysihtml5.all.min.js'
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/locales/bootstrap-wysihtml5.es-ES.js'
+    '@BackendBundle/Resources/public/js/post/post.coffee'
+    filter='?uglifyjs2'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

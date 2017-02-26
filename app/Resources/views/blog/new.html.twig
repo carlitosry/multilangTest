@@ -1,0 +1,38 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends '::backendBase.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/bootstrap3-wysihtml5.min.css'
+    filter='cssrewrite' filter='?uglifycss'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <h1>Blog creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('backend_blog_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+    '@BackendBundle/Resources/public/js/lib/add-new.coffee'
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/bootstrap3-wysihtml5.all.min.js'
+    'bundles/backend/vendor/bootstrap3-wysiwyg-master/dist/locales/bootstrap-wysihtml5.es-ES.js'
+    '@BackendBundle/Resources/public/js/post/post.coffee'
+    filter='?uglifyjs2'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

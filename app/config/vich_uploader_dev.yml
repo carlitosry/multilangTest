@@ -1,0 +1,21 @@
+vich_uploader:
+    db_driver: orm # or mongodb or propel or phpcr
+
+    mappings:
+        blog_main_image:
+            uri_prefix:         /multilang/web/images/blog/main
+            upload_destination: '%kernel.root_dir%/../web/images/blog/main'
+            namer:              vich_uploader.namer_uniqid
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        blog_gallery:
+            uri_prefix:         /multilang/web/images/blog/gallery
+            upload_destination: '%kernel.root_dir%/../web/images/blog/gallery'
+            namer:              vich_uploader.namer_uniqid
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
