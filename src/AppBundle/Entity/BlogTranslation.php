@@ -13,7 +13,7 @@ class BlogTranslation implements \A2lix\I18nDoctrineBundle\Doctrine\Interfaces\O
     use \A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translation;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="string", length=1000, nullable="true")
      */
     protected $title;
 
