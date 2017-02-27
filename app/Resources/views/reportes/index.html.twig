@@ -23,7 +23,7 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_reportes_show', { 'id': reporte.id }) }}">show</a>
+                            <a href="{{ path('admin_reportes_show', { '_locale': reporte.locale, 'id': reporte.id }) }}">show</a>
                         </li>
                         <li>
                             <a href="{{ path('admin_reportes_edit', { 'id': reporte.id }) }}">edit</a>

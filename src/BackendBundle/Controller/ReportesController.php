@@ -19,7 +19,7 @@ class ReportesController extends Controller
     /**
      * Lists all reportes entities.
      *
-     * @Route("/", name="admin_reportes_index")
+     * @Route("/", name="admin_reportes_index", requirements={"_locale": "en|es|ru"})
      * @Method("GET")
      */
     public function indexAction()
@@ -63,18 +63,19 @@ class ReportesController extends Controller
     /**
      * Finds and displays a blog entity.
      *
-     * @Route("/{_locale}/{id}", name="backend_blog_show", defaults={"_locale" = "es"}, requirements={
+     * @Route("/{_locale}/{id}", name="admin_reportes_show", defaults={"_locale" = "es"}, requirements={
      *         "_locale": "en|es|ru"
      *     })
      * @Method("GET")
      */
     public function showAction($_locale, Request $request, Reportes $reportes)
     {
-//        ldd($reportes->getCurrentTranslation());
+        ldd($reportes->getCurrentTranslation());
 
         $deleteForm = $this->createDeleteForm($reportes);
 
         return $this->render('reportes/show.html.twig', array(
+            'locale' => $_locale,
             'reporte' => $reportes,
             'delete_form' => $deleteForm->createView(),
         ));
