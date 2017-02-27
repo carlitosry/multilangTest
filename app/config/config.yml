@@ -120,7 +120,7 @@ a2lix_translation_form:
     required_locales: [en, es]         # [1-c]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [2]
 
-jms_i18n_routing:
-    default_locale: en
-    locales: [en, es, ru]
-    strategy: custom
+#jms_i18n_routing:
+#    default_locale: en
+#    locales: [en, es, ru]
+#    strategy: custom

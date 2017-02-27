@@ -61,19 +61,21 @@ class ReportesController extends Controller
     }
 
     /**
-     * Finds and displays a reportes entity.
+     * Finds and displays a blog entity.
      *
-     * @Route("/{locale}/{id}", name="admin_reportes_show")
+     * @Route("/{_locale}/{id}", name="backend_blog_show", defaults={"_locale" = "es"}, requirements={
+     *         "_locale": "en|es|ru"
+     *     })
      * @Method("GET")
      */
-    public function showAction(Reportes $reportes)
+    public function showAction($_locale, Request $request, Reportes $reportes)
     {
-        $deleteForm = $this->createDeleteForm($reportes );
-        $locale = $reportes->getLocale();
+//        ldd($reportes->getCurrentTranslation());
 
+        $deleteForm = $this->createDeleteForm($reportes);
 
         return $this->render('reportes/show.html.twig', array(
-            'reporte' => $reportes ,
+            'reporte' => $reportes,
             'delete_form' => $deleteForm->createView(),
         ));
 
@@ -87,7 +89,7 @@ class ReportesController extends Controller
      * @Method({"GET", "POST"})
      * @I18nDoctrine
      */
-    public function editAction(Request $request, Reportes $reportes )
+    public function editAction( Request $request, Reportes $reportes )
     {
         $deleteForm = $this->createDeleteForm($reportes );
         $editForm = $this->createForm('BackendBundle\Form\ReportesType', $reportes );

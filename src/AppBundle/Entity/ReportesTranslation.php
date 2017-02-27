@@ -108,4 +108,9 @@ class ReportesTranslation implements \A2lix\I18nDoctrineBundle\Doctrine\Interfac
     {
         return $this->notas;
     }
+
+    public function getCurrentTranslation()
+    {
+
+    }
 }

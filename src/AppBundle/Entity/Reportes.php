@@ -43,6 +43,7 @@ class Reportes
     }
 
 
+
     /**
      * @return int
      */
@@ -81,6 +82,7 @@ class Reportes
     {
         return $this->updatedAt;
     }
+
 
 }
 

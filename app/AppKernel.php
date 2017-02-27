@@ -23,8 +23,8 @@ class AppKernel extends Kernel
             new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-            new JMS\TranslationBundle\JMSTranslationBundle(),
+//            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+//            new JMS\TranslationBundle\JMSTranslationBundle(),
 
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
