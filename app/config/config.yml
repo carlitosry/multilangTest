@@ -51,11 +51,11 @@ assetic:
     filters:
         less:
           node: "C:\\Program Files\\nodejs\\node.exe"
-          node_paths: ["C:\\Users\\castw\\AppData\\Roaming\\npm\\node_modules"]
+          node_paths: ["C:\\Users\\EREYES\\AppData\\Roaming\\npm\\node_modules"]
           apply_to:   "\\.less$"
         coffee:
           node:
-          bin: "C:\\Users\\castw\\AppData\\Roaming\\npm\\coffee.cmd"
+          bin: "C:\\Users\\EREYES\\AppData\\Roaming\\npm\\coffee.cmd"
           apply_to:   "\\.coffee$"
         cssrewrite: ~
         #closure:
