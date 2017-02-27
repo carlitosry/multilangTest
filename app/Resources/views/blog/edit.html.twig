@@ -25,25 +25,25 @@
                     <!-- /.box-header -->
                     <div class="box-body pad">
                         {{ form_start(edit_form,{'attr':{'class':'edit-form','novalidate': 'novalidate'}}) }}
-                        {{ form_row(edit_form.imageFile) }}
-                        {{ form_row(edit_form.translations) }}
+                            {{ form_row(edit_form.imageFile) }}
+                            {{ form_row(edit_form.translations) }}
 
-                        <div class="col-md-12 post-media gallery">
-                            <label class="control-label">Imágenes de galería</label>
-                            <ul class="row-customers list-unstyled" data-index="2" data-prototype="<div class='col-sm-12'><div class='caption'>{{ form_row(edit_form.images.vars.prototype.imageFile)|e }}{{ form_row(edit_form.images.vars.prototype.sm)|e }}<button type='button' class='btn btn-danger delete-row-item'>Eliminar</button></div></div>">
-                                {% for item in edit_form.images %}
-                                    <li class="no-delete-button">
-                                        <div class="col-sm-12">
-                                            <div class="caption">
-                                                {{ form_row(item.imageFile)   }}
-                                                {{ form_row(item.sm)   }}
-                                                <button type='button' class='btn btn-danger delete-row-item'>Eliminar</button>
+                            <div class="col-md-12 post-media gallery">
+                                <label class="control-label">Imágenes de galería</label>
+                                <ul class="row-customers list-unstyled" data-index="2" data-prototype="<div class='col-sm-12'><div class='caption'>{{ form_row(edit_form.images.vars.prototype.imageFile)|e }}{{ form_row(edit_form.images.vars.prototype.sm)|e }}<button type='button' class='btn btn-danger delete-row-item'>Eliminar</button></div></div>">
+                                    {% for item in edit_form.images %}
+                                        <li class="no-delete-button">
+                                            <div class="col-sm-12">
+                                                <div class="caption">
+                                                    {{ form_row(item.imageFile)   }}
+                                                    {{ form_row(item.sm)   }}
+                                                    <button type='button' class='btn btn-danger delete-row-item'>Eliminar</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         {{ form_end(edit_form) }}
 
                         <div class="btn-toolbar special-top row" role="toolbar">
