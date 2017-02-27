@@ -63,17 +63,21 @@ class ReportesController extends Controller
     /**
      * Finds and displays a reportes entity.
      *
-     * @Route("/{id}", name="admin_reportes_show")
+     * @Route("/{locale}/{id}", name="admin_reportes_show")
      * @Method("GET")
      */
     public function showAction(Reportes $reportes)
     {
         $deleteForm = $this->createDeleteForm($reportes );
+        $locale = $reportes->getLocale();
+
 
         return $this->render('reportes/show.html.twig', array(
             'reporte' => $reportes ,
             'delete_form' => $deleteForm->createView(),
         ));
+
+
     }
 
     /**
@@ -81,6 +85,7 @@ class ReportesController extends Controller
      *
      * @Route("/{id}/edit", name="admin_reportes_edit")
      * @Method({"GET", "POST"})
+     * @I18nDoctrine
      */
     public function editAction(Request $request, Reportes $reportes )
     {

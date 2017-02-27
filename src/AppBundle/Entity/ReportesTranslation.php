@@ -13,7 +13,7 @@ class ReportesTranslation implements \A2lix\I18nDoctrineBundle\Doctrine\Interfac
     use \A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translation;
 
     /**
-     * @ORM\Column(type="text", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     protected $title;
 
@@ -67,6 +67,22 @@ class ReportesTranslation implements \A2lix\I18nDoctrineBundle\Doctrine\Interfac
     {
         $this->content = $content;
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @param mixed $locale
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
     }
 
     /**

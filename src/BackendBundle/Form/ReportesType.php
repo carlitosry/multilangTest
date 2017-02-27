@@ -17,8 +17,7 @@ class ReportesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('content')
+            ->add('id')
             ->add('translations', TranslationsType::class, [
                 'locales' => ['es', 'en', 'ru'],   // [1]
                 'fields' => [                               // [2]
@@ -35,8 +34,7 @@ class ReportesType extends AbstractType
                         ],
                     ]
                 ]
-            ])
-            ->add('notas');
+            ]);
     }
     
     /**

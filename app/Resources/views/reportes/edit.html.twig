@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
+{% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+{% extends '::backendBase.html.twig' %}
 
 {% block body %}
     <h1>Reporte edit</h1>
 
-    {{ form_start(edit_form) }}
+    {{ form_start(edit_form, {'attr':{'class':'edit-form','novalidate': 'novalidate'}}) }}
         {{ form_row(edit_form.translations) }}
 
         {{ form_widget(edit_form) }}

@@ -82,6 +82,5 @@ class Reportes
         return $this->updatedAt;
     }
 
-
 }
 
