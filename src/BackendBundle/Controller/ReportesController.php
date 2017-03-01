@@ -70,8 +70,6 @@ class ReportesController extends Controller
      */
     public function showAction($_locale, Request $request, Reportes $reportes)
     {
-        ldd($reportes->getCurrentTranslation());
-
         $deleteForm = $this->createDeleteForm($reportes);
 
         return $this->render('reportes/show.html.twig', array(

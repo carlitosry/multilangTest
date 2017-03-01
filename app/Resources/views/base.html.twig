@@ -5,9 +5,24 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+        <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+            api_key: 77sn9jdddreqa9
+            onLoad: onLinkedInLoad, onLinkedInLoadOthe
+            authorize: true
+        </script>
+        {% javascripts
+            '@BackendBundle/Resources/public/template/plugins/jQuery/jQuery-2.2.0.min.js'
+            '@BackendBundle/Resources/public/js/intapi.js'
+        filter='?uglifyjs2'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
     </body>
 </html>
